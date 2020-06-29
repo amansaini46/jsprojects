@@ -62,12 +62,16 @@ nextBtn.addEventListener('click', () => {
 
 prevBtn.addEventListener('click', () => {
     currentItem--
-    if ( 0 < currentItem) {
-      currentItem = 0; 
+    if ( currentItem < 0) {
+      currentItem = reviews.length - 1; 
     }
     showPerson(currentItem);
 });
 
+randomBtn.addEventListener('click', () => {
+  currentItem = Math.floor(Math.random() * reviews.length);
+  showPerson(currentItem);
+});
 
 function showPerson(person) {
   const item = reviews[person];
